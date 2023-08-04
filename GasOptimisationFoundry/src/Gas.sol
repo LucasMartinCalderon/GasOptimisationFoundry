@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.0;
+pragma solidity 0.8.18;
 
 import "./Ownable.sol";
 
@@ -317,7 +317,7 @@ contract GasContract is Ownable, Constants {
     }
 
 
-    function getPaymentStatus(address sender) public returns (bool, uint256) {        
+    function getPaymentStatus(address sender) public view returns (bool, uint256) {        
         return (whiteListStruct[sender].paymentStatus, whiteListStruct[sender].amount);
     }
 

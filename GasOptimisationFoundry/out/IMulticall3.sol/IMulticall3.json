@@ -467,10 +467,10 @@
     "tryAggregate(bool,(address,bytes)[])": "bce38bd7",
     "tryBlockAndAggregate(bool,(address,bytes)[])": "399542e9"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"aggregate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"returnData\",\"type\":\"bytes[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"allowFailure\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call3[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"aggregate3\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"allowFailure\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call3Value[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"aggregate3Value\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"blockAndAggregate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBasefee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"basefee\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"getBlockHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBlockNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getChainId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"chainid\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockCoinbase\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"coinbase\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockDifficulty\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"difficulty\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockGasLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"gaslimit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"getEthBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastBlockHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"requireSuccess\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"tryAggregate\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"requireSuccess\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"tryBlockAndAggregate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/forge-std/src/interfaces/IMulticall3.sol\":\"IMulticall3\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"lib/forge-std/src/interfaces/IMulticall3.sol\":{\"keccak256\":\"0x7aac1389150499a922d1f9ef5749c908cef127cb2075b92fa17e9cb611263d0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d95ebb7c7c463e08ebc12dab639945752fb2480acfc6e86da32f72732a7fd0c0\",\"dweb:/ipfs/QmNXK8P8oPWwajsQHvAHw3JPyQidPLCGQN3hWu1Lk6PBL2\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"aggregate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"returnData\",\"type\":\"bytes[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"allowFailure\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call3[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"aggregate3\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"allowFailure\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call3Value[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"aggregate3Value\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"blockAndAggregate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBasefee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"basefee\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"getBlockHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBlockNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getChainId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"chainid\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockCoinbase\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"coinbase\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockDifficulty\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"difficulty\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockGasLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"gaslimit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentBlockTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"getEthBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastBlockHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"requireSuccess\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"tryAggregate\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"requireSuccess\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Call[]\",\"name\":\"calls\",\"type\":\"tuple[]\"}],\"name\":\"tryBlockAndAggregate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\"}],\"internalType\":\"struct IMulticall3.Result[]\",\"name\":\"returnData\",\"type\":\"tuple[]\"}],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/forge-std/src/interfaces/IMulticall3.sol\":\"IMulticall3\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"lib/forge-std/src/interfaces/IMulticall3.sol\":{\"keccak256\":\"0x7aac1389150499a922d1f9ef5749c908cef127cb2075b92fa17e9cb611263d0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d95ebb7c7c463e08ebc12dab639945752fb2480acfc6e86da32f72732a7fd0c0\",\"dweb:/ipfs/QmNXK8P8oPWwajsQHvAHw3JPyQidPLCGQN3hWu1Lk6PBL2\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.0+commit.c7dfd78e"
+      "version": "0.8.18+commit.87f61d96"
     },
     "language": "Solidity",
     "output": {
@@ -954,6 +954,10 @@
     },
     "version": 1
   },
+  "storageLayout": {
+    "storage": [],
+    "types": {}
+  },
   "ast": {
     "absolutePath": "lib/forge-std/src/interfaces/IMulticall3.sol",
     "id": 28389,
@@ -1007,6 +1011,7 @@
                 "id": 28230,
                 "mutability": "mutable",
                 "name": "target",
+                "nameLocation": "158:6:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28233,
                 "src": "150:14:16",
@@ -1034,6 +1039,7 @@
                 "id": 28232,
                 "mutability": "mutable",
                 "name": "callData",
+                "nameLocation": "180:8:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28233,
                 "src": "174:14:16",
@@ -1057,6 +1063,7 @@
               }
             ],
             "name": "Call",
+            "nameLocation": "135:4:16",
             "scope": 28388,
             "visibility": "public"
           },
@@ -1072,6 +1079,7 @@
                 "id": 28235,
                 "mutability": "mutable",
                 "name": "target",
+                "nameLocation": "232:6:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28240,
                 "src": "224:14:16",
@@ -1099,6 +1107,7 @@
                 "id": 28237,
                 "mutability": "mutable",
                 "name": "allowFailure",
+                "nameLocation": "253:12:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28240,
                 "src": "248:17:16",
@@ -1125,6 +1134,7 @@
                 "id": 28239,
                 "mutability": "mutable",
                 "name": "callData",
+                "nameLocation": "281:8:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28240,
                 "src": "275:14:16",
@@ -1148,6 +1158,7 @@
               }
             ],
             "name": "Call3",
+            "nameLocation": "208:5:16",
             "scope": 28388,
             "visibility": "public"
           },
@@ -1163,6 +1174,7 @@
                 "id": 28242,
                 "mutability": "mutable",
                 "name": "target",
+                "nameLocation": "338:6:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28249,
                 "src": "330:14:16",
@@ -1190,6 +1202,7 @@
                 "id": 28244,
                 "mutability": "mutable",
                 "name": "allowFailure",
+                "nameLocation": "359:12:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28249,
                 "src": "354:17:16",
@@ -1216,6 +1229,7 @@
                 "id": 28246,
                 "mutability": "mutable",
                 "name": "value",
+                "nameLocation": "389:5:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28249,
                 "src": "381:13:16",
@@ -1242,6 +1256,7 @@
                 "id": 28248,
                 "mutability": "mutable",
                 "name": "callData",
+                "nameLocation": "410:8:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28249,
                 "src": "404:14:16",
@@ -1265,6 +1280,7 @@
               }
             ],
             "name": "Call3Value",
+            "nameLocation": "309:10:16",
             "scope": 28388,
             "visibility": "public"
           },
@@ -1280,6 +1296,7 @@
                 "id": 28251,
                 "mutability": "mutable",
                 "name": "success",
+                "nameLocation": "460:7:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28254,
                 "src": "455:12:16",
@@ -1306,6 +1323,7 @@
                 "id": 28253,
                 "mutability": "mutable",
                 "name": "returnData",
+                "nameLocation": "483:10:16",
                 "nodeType": "VariableDeclaration",
                 "scope": 28254,
                 "src": "477:16:16",
@@ -1329,6 +1347,7 @@
               }
             ],
             "name": "Result",
+            "nameLocation": "438:6:16",
             "scope": 28388,
             "visibility": "public"
           },
@@ -1342,6 +1361,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "aggregate",
+            "nameLocation": "515:9:16",
             "parameters": {
               "id": 28259,
               "nodeType": "ParameterList",
@@ -1351,6 +1371,7 @@
                   "id": 28258,
                   "mutability": "mutable",
                   "name": "calls",
+                  "nameLocation": "541:5:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28266,
                   "src": "525:21:16",
@@ -1367,6 +1388,9 @@
                       "pathNode": {
                         "id": 28255,
                         "name": "Call",
+                        "nameLocations": [
+                          "525:4:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28233,
                         "src": "525:4:16"
@@ -1400,6 +1424,7 @@
                   "id": 28261,
                   "mutability": "mutable",
                   "name": "blockNumber",
+                  "nameLocation": "606:11:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28266,
                   "src": "598:19:16",
@@ -1426,6 +1451,7 @@
                   "id": 28264,
                   "mutability": "mutable",
                   "name": "returnData",
+                  "nameLocation": "634:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28266,
                   "src": "619:25:16",
@@ -1474,6 +1500,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "aggregate3",
+            "nameLocation": "661:10:16",
             "parameters": {
               "id": 28271,
               "nodeType": "ParameterList",
@@ -1483,6 +1510,7 @@
                   "id": 28270,
                   "mutability": "mutable",
                   "name": "calls",
+                  "nameLocation": "689:5:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28277,
                   "src": "672:22:16",
@@ -1499,6 +1527,9 @@
                       "pathNode": {
                         "id": 28267,
                         "name": "Call3",
+                        "nameLocations": [
+                          "672:5:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28240,
                         "src": "672:5:16"
@@ -1532,6 +1563,7 @@
                   "id": 28275,
                   "mutability": "mutable",
                   "name": "returnData",
+                  "nameLocation": "738:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28277,
                   "src": "722:26:16",
@@ -1548,6 +1580,9 @@
                       "pathNode": {
                         "id": 28272,
                         "name": "Result",
+                        "nameLocations": [
+                          "722:6:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28254,
                         "src": "722:6:16"
@@ -1587,6 +1622,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "aggregate3Value",
+            "nameLocation": "765:15:16",
             "parameters": {
               "id": 28282,
               "nodeType": "ParameterList",
@@ -1596,6 +1632,7 @@
                   "id": 28281,
                   "mutability": "mutable",
                   "name": "calls",
+                  "nameLocation": "803:5:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28288,
                   "src": "781:27:16",
@@ -1612,6 +1649,9 @@
                       "pathNode": {
                         "id": 28278,
                         "name": "Call3Value",
+                        "nameLocations": [
+                          "781:10:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28249,
                         "src": "781:10:16"
@@ -1645,6 +1685,7 @@
                   "id": 28286,
                   "mutability": "mutable",
                   "name": "returnData",
+                  "nameLocation": "852:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28288,
                   "src": "836:26:16",
@@ -1661,6 +1702,9 @@
                       "pathNode": {
                         "id": 28283,
                         "name": "Result",
+                        "nameLocations": [
+                          "836:6:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28254,
                         "src": "836:6:16"
@@ -1700,6 +1744,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "blockAndAggregate",
+            "nameLocation": "879:17:16",
             "parameters": {
               "id": 28293,
               "nodeType": "ParameterList",
@@ -1709,6 +1754,7 @@
                   "id": 28292,
                   "mutability": "mutable",
                   "name": "calls",
+                  "nameLocation": "913:5:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28303,
                   "src": "897:21:16",
@@ -1725,6 +1771,9 @@
                       "pathNode": {
                         "id": 28289,
                         "name": "Call",
+                        "nameLocations": [
+                          "897:4:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28233,
                         "src": "897:4:16"
@@ -1758,6 +1807,7 @@
                   "id": 28295,
                   "mutability": "mutable",
                   "name": "blockNumber",
+                  "nameLocation": "978:11:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28303,
                   "src": "970:19:16",
@@ -1784,6 +1834,7 @@
                   "id": 28297,
                   "mutability": "mutable",
                   "name": "blockHash",
+                  "nameLocation": "999:9:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28303,
                   "src": "991:17:16",
@@ -1810,6 +1861,7 @@
                   "id": 28301,
                   "mutability": "mutable",
                   "name": "returnData",
+                  "nameLocation": "1026:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28303,
                   "src": "1010:26:16",
@@ -1826,6 +1878,9 @@
                       "pathNode": {
                         "id": 28298,
                         "name": "Result",
+                        "nameLocations": [
+                          "1010:6:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28254,
                         "src": "1010:6:16"
@@ -1865,6 +1920,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getBasefee",
+            "nameLocation": "1053:10:16",
             "parameters": {
               "id": 28304,
               "nodeType": "ParameterList",
@@ -1880,6 +1936,7 @@
                   "id": 28306,
                   "mutability": "mutable",
                   "name": "basefee",
+                  "nameLocation": "1097:7:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28308,
                   "src": "1089:15:16",
@@ -1919,6 +1976,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getBlockHash",
+            "nameLocation": "1121:12:16",
             "parameters": {
               "id": 28311,
               "nodeType": "ParameterList",
@@ -1928,6 +1986,7 @@
                   "id": 28310,
                   "mutability": "mutable",
                   "name": "blockNumber",
+                  "nameLocation": "1142:11:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28315,
                   "src": "1134:19:16",
@@ -1961,6 +2020,7 @@
                   "id": 28313,
                   "mutability": "mutable",
                   "name": "blockHash",
+                  "nameLocation": "1186:9:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28315,
                   "src": "1178:17:16",
@@ -2000,6 +2060,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getBlockNumber",
+            "nameLocation": "1212:14:16",
             "parameters": {
               "id": 28316,
               "nodeType": "ParameterList",
@@ -2015,6 +2076,7 @@
                   "id": 28318,
                   "mutability": "mutable",
                   "name": "blockNumber",
+                  "nameLocation": "1260:11:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28320,
                   "src": "1252:19:16",
@@ -2054,6 +2116,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getChainId",
+            "nameLocation": "1288:10:16",
             "parameters": {
               "id": 28321,
               "nodeType": "ParameterList",
@@ -2069,6 +2132,7 @@
                   "id": 28323,
                   "mutability": "mutable",
                   "name": "chainid",
+                  "nameLocation": "1332:7:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28325,
                   "src": "1324:15:16",
@@ -2108,6 +2172,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentBlockCoinbase",
+            "nameLocation": "1356:23:16",
             "parameters": {
               "id": 28326,
               "nodeType": "ParameterList",
@@ -2123,6 +2188,7 @@
                   "id": 28328,
                   "mutability": "mutable",
                   "name": "coinbase",
+                  "nameLocation": "1413:8:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28330,
                   "src": "1405:16:16",
@@ -2163,6 +2229,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentBlockDifficulty",
+            "nameLocation": "1438:25:16",
             "parameters": {
               "id": 28331,
               "nodeType": "ParameterList",
@@ -2178,6 +2245,7 @@
                   "id": 28333,
                   "mutability": "mutable",
                   "name": "difficulty",
+                  "nameLocation": "1497:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28335,
                   "src": "1489:18:16",
@@ -2217,6 +2285,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentBlockGasLimit",
+            "nameLocation": "1524:23:16",
             "parameters": {
               "id": 28336,
               "nodeType": "ParameterList",
@@ -2232,6 +2301,7 @@
                   "id": 28338,
                   "mutability": "mutable",
                   "name": "gaslimit",
+                  "nameLocation": "1581:8:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28340,
                   "src": "1573:16:16",
@@ -2271,6 +2341,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentBlockTimestamp",
+            "nameLocation": "1606:24:16",
             "parameters": {
               "id": 28341,
               "nodeType": "ParameterList",
@@ -2286,6 +2357,7 @@
                   "id": 28343,
                   "mutability": "mutable",
                   "name": "timestamp",
+                  "nameLocation": "1664:9:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28345,
                   "src": "1656:17:16",
@@ -2325,6 +2397,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getEthBalance",
+            "nameLocation": "1690:13:16",
             "parameters": {
               "id": 28348,
               "nodeType": "ParameterList",
@@ -2334,6 +2407,7 @@
                   "id": 28347,
                   "mutability": "mutable",
                   "name": "addr",
+                  "nameLocation": "1712:4:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28352,
                   "src": "1704:12:16",
@@ -2368,6 +2442,7 @@
                   "id": 28350,
                   "mutability": "mutable",
                   "name": "balance",
+                  "nameLocation": "1749:7:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28352,
                   "src": "1741:15:16",
@@ -2407,6 +2482,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "getLastBlockHash",
+            "nameLocation": "1773:16:16",
             "parameters": {
               "id": 28353,
               "nodeType": "ParameterList",
@@ -2422,6 +2498,7 @@
                   "id": 28355,
                   "mutability": "mutable",
                   "name": "blockHash",
+                  "nameLocation": "1823:9:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28357,
                   "src": "1815:17:16",
@@ -2461,6 +2538,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "tryAggregate",
+            "nameLocation": "1849:12:16",
             "parameters": {
               "id": 28364,
               "nodeType": "ParameterList",
@@ -2470,6 +2548,7 @@
                   "id": 28359,
                   "mutability": "mutable",
                   "name": "requireSuccess",
+                  "nameLocation": "1867:14:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28370,
                   "src": "1862:19:16",
@@ -2496,6 +2575,7 @@
                   "id": 28363,
                   "mutability": "mutable",
                   "name": "calls",
+                  "nameLocation": "1899:5:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28370,
                   "src": "1883:21:16",
@@ -2512,6 +2592,9 @@
                       "pathNode": {
                         "id": 28360,
                         "name": "Call",
+                        "nameLocations": [
+                          "1883:4:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28233,
                         "src": "1883:4:16"
@@ -2545,6 +2628,7 @@
                   "id": 28368,
                   "mutability": "mutable",
                   "name": "returnData",
+                  "nameLocation": "1972:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28370,
                   "src": "1956:26:16",
@@ -2561,6 +2645,9 @@
                       "pathNode": {
                         "id": 28365,
                         "name": "Result",
+                        "nameLocations": [
+                          "1956:6:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28254,
                         "src": "1956:6:16"
@@ -2600,6 +2687,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "tryBlockAndAggregate",
+            "nameLocation": "1999:20:16",
             "parameters": {
               "id": 28377,
               "nodeType": "ParameterList",
@@ -2609,6 +2697,7 @@
                   "id": 28372,
                   "mutability": "mutable",
                   "name": "requireSuccess",
+                  "nameLocation": "2025:14:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28387,
                   "src": "2020:19:16",
@@ -2635,6 +2724,7 @@
                   "id": 28376,
                   "mutability": "mutable",
                   "name": "calls",
+                  "nameLocation": "2057:5:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28387,
                   "src": "2041:21:16",
@@ -2651,6 +2741,9 @@
                       "pathNode": {
                         "id": 28373,
                         "name": "Call",
+                        "nameLocations": [
+                          "2041:4:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28233,
                         "src": "2041:4:16"
@@ -2684,6 +2777,7 @@
                   "id": 28379,
                   "mutability": "mutable",
                   "name": "blockNumber",
+                  "nameLocation": "2122:11:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28387,
                   "src": "2114:19:16",
@@ -2710,6 +2804,7 @@
                   "id": 28381,
                   "mutability": "mutable",
                   "name": "blockHash",
+                  "nameLocation": "2143:9:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28387,
                   "src": "2135:17:16",
@@ -2736,6 +2831,7 @@
                   "id": 28385,
                   "mutability": "mutable",
                   "name": "returnData",
+                  "nameLocation": "2170:10:16",
                   "nodeType": "VariableDeclaration",
                   "scope": 28387,
                   "src": "2154:26:16",
@@ -2752,6 +2848,9 @@
                       "pathNode": {
                         "id": 28382,
                         "name": "Result",
+                        "nameLocations": [
+                          "2154:6:16"
+                        ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 28254,
                         "src": "2154:6:16"
@@ -2784,6 +2883,7 @@
         ],
         "abstract": false,
         "baseContracts": [],
+        "canonicalName": "IMulticall3",
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
@@ -2791,7 +2891,9 @@
           28388
         ],
         "name": "IMulticall3",
-        "scope": 28389
+        "nameLocation": "110:11:16",
+        "scope": 28389,
+        "usedErrors": []
       }
     ],
     "license": "MIT"
