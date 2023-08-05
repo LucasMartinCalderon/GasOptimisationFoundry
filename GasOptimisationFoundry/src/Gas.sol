@@ -3,23 +3,25 @@ pragma solidity 0.8.18;
 
 import "./Ownable.sol";
 
+// constants save on gas
 contract Constants {
-    uint256 public tradeFlag = 1;
-    uint256 public basicFlag = 0;
-    uint256 public dividendFlag = 1;
+    uint256 constant tradeFlag = 1;
+    uint256 constant basicFlag = 0;
+    uint256 constant dividendFlag = 1;
 }
 
 contract GasContract is Ownable, Constants {
-    uint256 public totalSupply = 0; // cannot be updated
-    uint256 public paymentCounter = 0;
+    // Constant totalSupply is set to 0, so that it cannot be updated
+    uint256 private totalSupply = 0; // cannot be updated
+    uint256 private paymentCounter = 0;
     mapping(address => uint256) public balances;
-    uint256 public tradePercent = 12;
-    address public contractOwner;
-    uint256 public tradeMode = 0;
+    uint256 private tradePercent = 12;
+    address private contractOwner;
+    uint256 private tradeMode = 0;
     mapping(address => Payment[]) public payments;
     mapping(address => uint256) public whitelist;
     address[5] public administrators;
-    bool public isReady = false;
+    bool private isReady = false;
     enum PaymentType {
         Unknown,
         BasicPayment,
@@ -29,7 +31,7 @@ contract GasContract is Ownable, Constants {
     }
     PaymentType constant defaultPayment = PaymentType.Unknown;
 
-    History[] public paymentHistory; // when a payment was updated
+    History[] private paymentHistory; // when a payment was updated
 
     struct Payment {
         PaymentType paymentType;
@@ -47,7 +49,7 @@ contract GasContract is Ownable, Constants {
         uint256 blockNumber;
     }
     uint256 wasLastOdd = 1;
-    mapping(address => uint256) public isOddWhitelistUser;
+    mapping(address => uint256) private isOddWhitelistUser;
     
     struct ImportantStruct {
         uint256 amount;
@@ -57,19 +59,14 @@ contract GasContract is Ownable, Constants {
         bool paymentStatus;
         address sender;
     }
-    mapping(address => ImportantStruct) public whiteListStruct;
+    mapping(address => ImportantStruct) private whiteListStruct;
 
     event AddedToWhitelist(address userAddress, uint256 tier);
 
+    // Currently, it is unnecessarily checking twice if the sender is an admin using checkForAdmin(senderOfTx)
     modifier onlyAdminOrOwner() {
         address senderOfTx = msg.sender;
-        if (checkForAdmin(senderOfTx)) {
-            require(
-                checkForAdmin(senderOfTx),
-                "Gas Contract Only Admin Check-  Caller not admin"
-            );
-            _;
-        } else if (senderOfTx == contractOwner) {
+        if (checkForAdmin(senderOfTx) || senderOfTx == contractOwner) {
             _;
         } else {
             revert(
@@ -77,6 +74,7 @@ contract GasContract is Ownable, Constants {
             );
         }
     }
+
 
     modifier checkIfWhiteListed(address sender) {
         address senderOfTx = msg.sender;
@@ -135,7 +133,7 @@ contract GasContract is Ownable, Constants {
         return paymentHistory;
     }
 
-    function checkForAdmin(address _user) public view returns (bool admin_) {
+    function checkForAdmin(address _user) private view returns (bool admin_) {
         bool admin = false;
         for (uint256 ii = 0; ii < administrators.length; ii++) {
             if (administrators[ii] == _user) {
@@ -150,7 +148,7 @@ contract GasContract is Ownable, Constants {
         return balance;
     }
 
-    function getTradingMode() public view returns (bool mode_) {
+    function getTradingMode() private pure returns (bool mode_) {
         bool mode = false;
         if (tradeFlag == 1 || dividendFlag == 1) {
             mode = true;
@@ -227,7 +225,7 @@ contract GasContract is Ownable, Constants {
         uint256 _ID,
         uint256 _amount,
         PaymentType _type
-    ) public onlyAdminOrOwner {
+    ) private onlyAdminOrOwner {
         require(
             _ID > 0,
             "Gas Contract - Update Payment function - ID must be greater than 0"
@@ -261,6 +259,8 @@ contract GasContract is Ownable, Constants {
         }
     }
 
+    // Gas optimisations: addToWhitelist() is the function that gets called the most, 7 times
+    // Strategy: 
     function addToWhitelist(address _userAddrs, uint256 _tier)
         public
         onlyAdminOrOwner
@@ -296,7 +296,7 @@ contract GasContract is Ownable, Constants {
     function whiteTransfer(
         address _recipient,
         uint256 _amount
-    ) public checkIfWhiteListed(msg.sender) {
+    )  public checkIfWhiteListed(msg.sender) {
         address senderOfTx = msg.sender;
         whiteListStruct[senderOfTx] = ImportantStruct(_amount, 0, 0, 0, true, msg.sender);
         
