@@ -65,21 +65,17 @@ contract GasContract is Ownable, Constants {
 
     event AddedToWhitelist(address userAddress, uint256 tier);
 
-    error NotAdmin();
-    error NotOwner();
-    error NotSender();
-    
-
     modifier onlyAdminOrOwner() {
         address senderOfTx = msg.sender;
         if (checkForAdmin(senderOfTx)) {
-            if(!checkForAdmin(senderOfTx)){
-                revert NotAdmin();}
+            if (!checkForAdmin(senderOfTx)) {
+                revert();
+            }
             _;
         } else if (senderOfTx == contractOwner) {
             _;
         } else {
-            revert NotAdmin();
+            revert();
         }
     }
 
@@ -94,7 +90,6 @@ contract GasContract is Ownable, Constants {
 
     event supplyChanged(address indexed, uint256 indexed);
     event Transfer(address recipient, uint256 amount);
-    event PaymentUpdated(address admin, uint256 ID, uint256 amount, string recipient);
     event WhiteListTransfer(address indexed);
 
     constructor(address[] memory _admins, uint256 _totalSupply) payable {
@@ -118,10 +113,6 @@ contract GasContract is Ownable, Constants {
         }
     }
 
-    function getPaymentHistory() public payable returns (History[] memory paymentHistory_) {
-        return paymentHistory;
-    }
-
     function checkForAdmin(address _user) public view returns (bool admin_) {
         bool admin;
         for (uint256 ii; ii < administrators.length; ++ii) {
@@ -133,40 +124,7 @@ contract GasContract is Ownable, Constants {
     }
 
     function balanceOf(address _user) public view returns (uint256 balance_) {
-        uint256 balance = balances[_user];
-        return balance;
-    }
-
-    function getTradingMode() public view returns (bool mode_) {
-        bool mode;
-        if (tradeFlag == 1 || dividendFlag == 1) {
-            mode = true;
-        } else {
-            mode;
-        }
-        return mode;
-    }
-
-    function addHistory(address _updateAddress, bool _tradeMode)
-        public
-        payable
-        returns (bool status_, bool tradeMode_)
-    {
-        History memory history;
-        history.blockNumber = block.number;
-        history.lastUpdate = block.timestamp;
-        history.updatedBy = _updateAddress;
-        paymentHistory.push(history);
-        bool[] memory status = new bool[](tradePercent);
-        for (uint256 i; i < tradePercent; ++i) {
-            status[i] = true;
-        }
-        return ((status[0] == true), _tradeMode);
-    }
-
-    function getPayments(address _user) public view returns (Payment[] memory payments_) {
-        require(_user != address(0));
-        return payments[_user];
+        return balances[_user];
     }
 
     function transfer(address _recipient, uint256 _amount, string calldata _name)
@@ -196,30 +154,6 @@ contract GasContract is Ownable, Constants {
         return (status[0] == true);
     }
 
-    function updatePayment(address _user, uint256 _ID, uint256 _amount, PaymentType _type)
-        public
-        payable
-        onlyAdminOrOwner
-    {
-        require(_ID > 0);
-        require(_amount > 0);
-        require(_user != address(0));
-
-        address senderOfTx = msg.sender;
-
-        for (uint256 ii; ii < payments[_user].length; ++ii) {
-            if (payments[_user][ii].paymentID == _ID) {
-                payments[_user][ii].adminUpdated = true;
-                payments[_user][ii].admin = _user;
-                payments[_user][ii].paymentType = _type;
-                payments[_user][ii].amount = _amount;
-                bool tradingMode = getTradingMode();
-                addHistory(_user, tradingMode);
-                emit PaymentUpdated(senderOfTx, _ID, _amount, payments[_user][ii].recipientName);
-            }
-        }
-    }
-
     function addToWhitelist(address _userAddrs, uint256 _tier) public payable onlyAdminOrOwner {
         require(_tier < 255);
         whitelist[_userAddrs] = _tier;
@@ -237,11 +171,6 @@ contract GasContract is Ownable, Constants {
         if (wasLastAddedOdd == 1) {
             wasLastOdd;
             isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
-        } else if (wasLastAddedOdd == 0) {
-            wasLastOdd = 1;
-            isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
-        } else {
-            revert();
         }
         emit AddedToWhitelist(_userAddrs, _tier);
     }
@@ -262,13 +191,5 @@ contract GasContract is Ownable, Constants {
 
     function getPaymentStatus(address sender) public view returns (bool, uint256) {
         return (whiteListStruct[sender].paymentStatus, whiteListStruct[sender].amount);
-    }
-
-    receive() external payable {
-        payable(msg.sender).transfer(msg.value);
-    }
-
-    fallback() external payable {
-        payable(msg.sender).transfer(msg.value);
     }
 }
