@@ -67,7 +67,7 @@ abstract contract Ownable is Context {
      * @dev Throws if the sender is not the owner.
      */
     function _checkOwner() internal view virtual {
-        require(owner() == _msgSender(), "not owner");
+        require(owner() == _msgSender());
     }
 
     /**
@@ -87,9 +87,7 @@ abstract contract Ownable is Context {
      */
     function transferOwnership(address newOwner) public virtual onlyOwner {
         require(
-            newOwner != address(0),
-            "0 address"
-        );
+            newOwner != address(0));
         _transferOwnership(newOwner);
     }
 

@@ -761,8 +761,8 @@
       }
     },
     "src/Gas.sol": {
-      "lastModificationDate": 1691250522144,
-      "contentHash": "b312797386368e48f282e6800758aca4",
+      "lastModificationDate": 1691251690876,
+      "contentHash": "d991a3cc3dc9652b73d446fe43a0391c",
       "sourceName": "src/Gas.sol",
       "solcConfig": {
         "settings": {
@@ -793,22 +793,26 @@
           "libraries": {}
         }
       },
-      "imports": [
-        "src/Ownable.sol"
-      ],
+      "imports": [],
       "versionRequirement": "=0.8.19",
       "artifacts": {
         "Constants": {
           "0.8.19+commit.7dd6d404.Darwin.appleclang": "Gas.sol/Constants.json"
         },
+        "Context": {
+          "0.8.19+commit.7dd6d404.Darwin.appleclang": "Gas.sol/Context.json"
+        },
         "GasContract": {
           "0.8.19+commit.7dd6d404.Darwin.appleclang": "Gas.sol/GasContract.json"
+        },
+        "Ownable": {
+          "0.8.19+commit.7dd6d404.Darwin.appleclang": "Gas.sol/Ownable.json"
         }
       }
     },
     "src/Ownable.sol": {
-      "lastModificationDate": 1691250522127,
-      "contentHash": "0a3b41fea8e58382d88b825bdce53a4d",
+      "lastModificationDate": 1691251654474,
+      "contentHash": "d6656ab7a6198b06912d7a06dbd8ea6b",
       "sourceName": "src/Ownable.sol",
       "solcConfig": {
         "settings": {

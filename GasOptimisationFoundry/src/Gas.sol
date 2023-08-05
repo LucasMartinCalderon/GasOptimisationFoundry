@@ -54,8 +54,8 @@ contract GasContract is Ownable, Constants {
 
     struct ImportantStruct {
         uint256 amount;
-        uint8 valueA; // max 3 digits
         uint256 bigValue;
+        uint8 valueA; // max 3 digits
         uint8 valueB; // max 3 digits
         bool paymentStatus;
         address sender;
@@ -65,24 +65,30 @@ contract GasContract is Ownable, Constants {
 
     event AddedToWhitelist(address userAddress, uint256 tier);
 
+    error NotAdmin();
+    error NotOwner();
+    error NotSender();
+    
+
     modifier onlyAdminOrOwner() {
         address senderOfTx = msg.sender;
         if (checkForAdmin(senderOfTx)) {
-            require(checkForAdmin(senderOfTx), "not admin");
+            if(!checkForAdmin(senderOfTx)){
+                revert NotAdmin();}
             _;
         } else if (senderOfTx == contractOwner) {
             _;
         } else {
-            revert("not admin");
+            revert NotAdmin();
         }
     }
 
     modifier checkIfWhiteListed(address sender) {
         address senderOfTx = msg.sender;
-        require(senderOfTx == sender, "not sender");
+        require(senderOfTx == sender);
         uint256 usersTier = whitelist[senderOfTx];
-        require(usersTier > 0, "not whitelisted");
-        require(usersTier < 4, "incorrect tier");
+        require(usersTier > 0);
+        require(usersTier < 4);
         _;
     }
 
@@ -159,7 +165,7 @@ contract GasContract is Ownable, Constants {
     }
 
     function getPayments(address _user) public view returns (Payment[] memory payments_) {
-        require(_user != address(0), "0 address");
+        require(_user != address(0));
         return payments[_user];
     }
 
@@ -169,8 +175,8 @@ contract GasContract is Ownable, Constants {
         returns (bool status_)
     {
         address senderOfTx = msg.sender;
-        require(balances[senderOfTx] >= _amount, "insufficient balance");
-        require(bytes(_name).length < 9, "name too long");
+        require(balances[senderOfTx] >= _amount);
+        require(bytes(_name).length < 9);
         balances[senderOfTx] -= _amount;
         balances[_recipient] += _amount;
         emit Transfer(_recipient, _amount);
@@ -195,9 +201,9 @@ contract GasContract is Ownable, Constants {
         payable
         onlyAdminOrOwner
     {
-        require(_ID > 0, "ID must be > 0");
-        require(_amount > 0, "Amount must be > 0");
-        require(_user != address(0), "Administrator == 0 address");
+        require(_ID > 0);
+        require(_amount > 0);
+        require(_user != address(0));
 
         address senderOfTx = msg.sender;
 
@@ -215,7 +221,7 @@ contract GasContract is Ownable, Constants {
     }
 
     function addToWhitelist(address _userAddrs, uint256 _tier) public payable onlyAdminOrOwner {
-        require(_tier < 255, "Tier should be < 255");
+        require(_tier < 255);
         whitelist[_userAddrs] = _tier;
         if (_tier > 3) {
             whitelist[_userAddrs] -= _tier;
@@ -235,7 +241,7 @@ contract GasContract is Ownable, Constants {
             wasLastOdd = 1;
             isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
         } else {
-            revert("SOS");
+            revert();
         }
         emit AddedToWhitelist(_userAddrs, _tier);
     }
@@ -244,8 +250,8 @@ contract GasContract is Ownable, Constants {
         address senderOfTx = msg.sender;
         whiteListStruct[senderOfTx] = ImportantStruct(_amount, 0, 0, 0, true, msg.sender);
 
-        require(balances[senderOfTx] >= _amount, "Insufficient balance");
-        require(_amount > 3, "Amount must be > 3");
+        require(balances[senderOfTx] >= _amount);
+        require(_amount > 3);
         balances[senderOfTx] -= _amount;
         balances[_recipient] += _amount;
         balances[senderOfTx] += whitelist[senderOfTx];
