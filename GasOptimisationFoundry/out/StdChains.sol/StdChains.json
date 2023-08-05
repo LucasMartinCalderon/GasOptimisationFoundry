@@ -11,10 +11,10 @@
     "linkReferences": {}
   },
   "methodIdentifiers": {},
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"StdChains provides information about EVM compatible chains that can be used in scripts/tests. For each chain, the chain's name, chain ID, and a default RPC URL are provided. Chains are identified by their alias, which is the same as the alias in the `[rpc_endpoints]` section of the `foundry.toml` file. For best UX, ensure the alias in the `foundry.toml` file match the alias used in this contract, which can be found as the first argument to the `setChainWithDefaultRpcUrl` call in the `initialize` function. There are two main ways to use this contract:   1. Set a chain with `setChain(string memory chainAlias, ChainData memory chain)` or      `setChain(string memory chainAlias, Chain memory chain)`   2. Get a chain with `getChain(string memory chainAlias)` or `getChain(uint256 chainId)`. The first time either of those are used, chains are initialized with the default set of RPC URLs. This is done in `initialize`, which uses `setChainWithDefaultRpcUrl`. Defaults are recorded in `defaultRpcUrls`. The `setChain` function is straightforward, and it simply saves off the given chain data. The `getChain` methods use `getChainWithUpdatedRpcUrl` to return a chain. For example, let's say we want to retrieve `mainnet`'s RPC URL:   - If you haven't set any mainnet chain info with `setChain`, you haven't specified that     chain in `foundry.toml` and no env var is set, the default data and RPC URL will be returned.   - If you have set a mainnet RPC URL in `foundry.toml` it will return that, if valid (e.g. if     a URL is given or if an environment variable is given and that environment variable exists).     Otherwise, the default data is returned.   - If you specified data with `setChain` it will return that. Summarizing the above, the prioritization hierarchy is `setChain` -> `foundry.toml` -> environment variable -> defaults.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/forge-std/src/StdChains.sol\":\"StdChains\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"lib/forge-std/src/StdChains.sol\":{\"keccak256\":\"0x097b75f7171af89f433407e040d11b22fc26e2fe03793c2cfe18cad390d7af8b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://19d1dca7b398e517499ffa65ad44df69cdd016f37dc57e2d07d50279d3ddee17\",\"dweb:/ipfs/QmfMFR25367GB5PoBi1KZxWs1hZcJtC3eANiioG3dKj8ah\"]},\"lib/forge-std/src/Vm.sol\":{\"keccak256\":\"0xdd9f518aade851117d3ca3122cae6ed413a8b8355d43d69db336e94da3214a96\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://939ede17edec5c78176379839f4c68851b1316e8f5789efb2f01cbdae09b88ef\",\"dweb:/ipfs/QmYiBBb7Nyuse7HoEFkCeauUwcpef9S33ozZYDqXCEXEtH\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"StdChains provides information about EVM compatible chains that can be used in scripts/tests. For each chain, the chain's name, chain ID, and a default RPC URL are provided. Chains are identified by their alias, which is the same as the alias in the `[rpc_endpoints]` section of the `foundry.toml` file. For best UX, ensure the alias in the `foundry.toml` file match the alias used in this contract, which can be found as the first argument to the `setChainWithDefaultRpcUrl` call in the `initialize` function. There are two main ways to use this contract:   1. Set a chain with `setChain(string memory chainAlias, ChainData memory chain)` or      `setChain(string memory chainAlias, Chain memory chain)`   2. Get a chain with `getChain(string memory chainAlias)` or `getChain(uint256 chainId)`. The first time either of those are used, chains are initialized with the default set of RPC URLs. This is done in `initialize`, which uses `setChainWithDefaultRpcUrl`. Defaults are recorded in `defaultRpcUrls`. The `setChain` function is straightforward, and it simply saves off the given chain data. The `getChain` methods use `getChainWithUpdatedRpcUrl` to return a chain. For example, let's say we want to retrieve `mainnet`'s RPC URL:   - If you haven't set any mainnet chain info with `setChain`, you haven't specified that     chain in `foundry.toml` and no env var is set, the default data and RPC URL will be returned.   - If you have set a mainnet RPC URL in `foundry.toml` it will return that, if valid (e.g. if     a URL is given or if an environment variable is given and that environment variable exists).     Otherwise, the default data is returned.   - If you specified data with `setChain` it will return that. Summarizing the above, the prioritization hierarchy is `setChain` -> `foundry.toml` -> environment variable -> defaults.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/forge-std/src/StdChains.sol\":\"StdChains\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"lib/forge-std/src/StdChains.sol\":{\"keccak256\":\"0x097b75f7171af89f433407e040d11b22fc26e2fe03793c2cfe18cad390d7af8b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://19d1dca7b398e517499ffa65ad44df69cdd016f37dc57e2d07d50279d3ddee17\",\"dweb:/ipfs/QmfMFR25367GB5PoBi1KZxWs1hZcJtC3eANiioG3dKj8ah\"]},\"lib/forge-std/src/Vm.sol\":{\"keccak256\":\"0xdd9f518aade851117d3ca3122cae6ed413a8b8355d43d69db336e94da3214a96\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://939ede17edec5c78176379839f4c68851b1316e8f5789efb2f01cbdae09b88ef\",\"dweb:/ipfs/QmYiBBb7Nyuse7HoEFkCeauUwcpef9S33ozZYDqXCEXEtH\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.18+commit.87f61d96"
+      "version": "0.8.19+commit.7dd6d404"
     },
     "language": "Solidity",
     "output": {
@@ -32,8 +32,8 @@
     },
     "settings": {
       "remappings": [
-        ":ds-test/=lib/forge-std/lib/ds-test/src/",
-        ":forge-std/=lib/forge-std/src/"
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "forge-std/=lib/forge-std/src/"
       ],
       "optimizer": {
         "enabled": true,
@@ -66,132 +66,6 @@
       }
     },
     "version": 1
-  },
-  "storageLayout": {
-    "storage": [
-      {
-        "astId": 3285,
-        "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-        "label": "initialized",
-        "offset": 0,
-        "slot": "0",
-        "type": "t_bool"
-      },
-      {
-        "astId": 3306,
-        "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-        "label": "chains",
-        "offset": 0,
-        "slot": "1",
-        "type": "t_mapping(t_string_memory_ptr,t_struct(Chain)3301_storage)"
-      },
-      {
-        "astId": 3310,
-        "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-        "label": "defaultRpcUrls",
-        "offset": 0,
-        "slot": "2",
-        "type": "t_mapping(t_string_memory_ptr,t_string_storage)"
-      },
-      {
-        "astId": 3314,
-        "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-        "label": "idToAlias",
-        "offset": 0,
-        "slot": "3",
-        "type": "t_mapping(t_uint256,t_string_storage)"
-      },
-      {
-        "astId": 3317,
-        "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-        "label": "fallbackToDefaultRpcUrls",
-        "offset": 0,
-        "slot": "4",
-        "type": "t_bool"
-      }
-    ],
-    "types": {
-      "t_bool": {
-        "encoding": "inplace",
-        "label": "bool",
-        "numberOfBytes": "1"
-      },
-      "t_mapping(t_string_memory_ptr,t_string_storage)": {
-        "encoding": "mapping",
-        "key": "t_string_memory_ptr",
-        "label": "mapping(string => string)",
-        "numberOfBytes": "32",
-        "value": "t_string_storage"
-      },
-      "t_mapping(t_string_memory_ptr,t_struct(Chain)3301_storage)": {
-        "encoding": "mapping",
-        "key": "t_string_memory_ptr",
-        "label": "mapping(string => struct StdChains.Chain)",
-        "numberOfBytes": "32",
-        "value": "t_struct(Chain)3301_storage"
-      },
-      "t_mapping(t_uint256,t_string_storage)": {
-        "encoding": "mapping",
-        "key": "t_uint256",
-        "label": "mapping(uint256 => string)",
-        "numberOfBytes": "32",
-        "value": "t_string_storage"
-      },
-      "t_string_memory_ptr": {
-        "encoding": "bytes",
-        "label": "string",
-        "numberOfBytes": "32"
-      },
-      "t_string_storage": {
-        "encoding": "bytes",
-        "label": "string",
-        "numberOfBytes": "32"
-      },
-      "t_struct(Chain)3301_storage": {
-        "encoding": "inplace",
-        "label": "struct StdChains.Chain",
-        "numberOfBytes": "128",
-        "members": [
-          {
-            "astId": 3294,
-            "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-            "label": "name",
-            "offset": 0,
-            "slot": "0",
-            "type": "t_string_storage"
-          },
-          {
-            "astId": 3296,
-            "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-            "label": "chainId",
-            "offset": 0,
-            "slot": "1",
-            "type": "t_uint256"
-          },
-          {
-            "astId": 3298,
-            "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-            "label": "chainAlias",
-            "offset": 0,
-            "slot": "2",
-            "type": "t_string_storage"
-          },
-          {
-            "astId": 3300,
-            "contract": "lib/forge-std/src/StdChains.sol:StdChains",
-            "label": "rpcUrl",
-            "offset": 0,
-            "slot": "3",
-            "type": "t_string_storage"
-          }
-        ]
-      },
-      "t_uint256": {
-        "encoding": "inplace",
-        "label": "uint256",
-        "numberOfBytes": "32"
-      }
-    }
   },
   "ast": {
     "absolutePath": "lib/forge-std/src/StdChains.sol",
@@ -6701,7 +6575,7 @@
                                           ]
                                         },
                                         "documentation": "@solidity memory-safe-assembly",
-                                        "evmVersion": "london",
+                                        "evmVersion": "paris",
                                         "externalReferences": [
                                           {
                                             "declaration": 3669,

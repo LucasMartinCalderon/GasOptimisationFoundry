@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18; 
+pragma solidity 0.8.19; 
 
 /**
  * @dev Provides information about the current execution context, including the
@@ -67,7 +67,7 @@ abstract contract Ownable is Context {
      * @dev Throws if the sender is not the owner.
      */
     function _checkOwner() internal view virtual {
-        require(owner() == _msgSender(), "Ownable: caller is not the owner");
+        require(owner() == _msgSender(), "not owner");
     }
 
     /**
@@ -88,7 +88,7 @@ abstract contract Ownable is Context {
     function transferOwnership(address newOwner) public virtual onlyOwner {
         require(
             newOwner != address(0),
-            "Ownable: new owner is the zero address"
+            "0 address"
         );
         _transferOwnership(newOwner);
     }
