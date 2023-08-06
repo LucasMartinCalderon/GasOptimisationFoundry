@@ -93,34 +93,38 @@ contract GasContract is Ownable, Constants {
     event WhiteListTransfer(address indexed);
 
     constructor(address[] memory _admins, uint256 _totalSupply) payable {
-        contractOwner = msg.sender;
-        totalSupply = _totalSupply;
+        unchecked {
+            contractOwner = msg.sender;
+            totalSupply = _totalSupply;
 
-        for (uint256 ii; ii < administrators.length; ++ii) {
-            if (_admins[ii] != address(0)) {
-                administrators[ii] = _admins[ii];
-                if (_admins[ii] == contractOwner) {
-                    balances[contractOwner] = totalSupply;
-                } else {
-                    balances[_admins[ii]];
-                }
-                if (_admins[ii] == contractOwner) {
-                    emit supplyChanged(_admins[ii], totalSupply);
-                } else if (_admins[ii] != contractOwner) {
-                    emit supplyChanged(_admins[ii], 0);
+            for (uint256 ii; ii < administrators.length; ++ii) {
+                if (_admins[ii] != address(0)) {
+                    administrators[ii] = _admins[ii];
+                    if (_admins[ii] == contractOwner) {
+                        balances[contractOwner] = totalSupply;
+                    } else {
+                        balances[_admins[ii]];
+                    }
+                    if (_admins[ii] == contractOwner) {
+                        emit supplyChanged(_admins[ii], totalSupply);
+                    } else if (_admins[ii] != contractOwner) {
+                        emit supplyChanged(_admins[ii], 0);
+                    }
                 }
             }
         }
     }
 
     function checkForAdmin(address _user) public view returns (bool admin_) {
-        bool admin;
-        for (uint256 ii; ii < administrators.length; ++ii) {
-            if (administrators[ii] == _user) {
-                admin = true;
+        unchecked {
+            bool admin;
+            for (uint256 ii; ii < administrators.length; ++ii) {
+                if (administrators[ii] == _user) {
+                    admin = true;
+                }
             }
+            return admin;
         }
-        return admin;
     }
 
     function balanceOf(address _user) public view returns (uint256 balance_) {
@@ -132,61 +136,67 @@ contract GasContract is Ownable, Constants {
         payable
         returns (bool status_)
     {
-        address senderOfTx = msg.sender;
-        require(balances[senderOfTx] >= _amount);
-        require(bytes(_name).length < 9);
-        balances[senderOfTx] -= _amount;
-        balances[_recipient] += _amount;
-        emit Transfer(_recipient, _amount);
-        Payment memory payment;
-        payment.admin = address(0);
-        payment.adminUpdated;
-        payment.paymentType = PaymentType.BasicPayment;
-        payment.recipient = _recipient;
-        payment.amount = _amount;
-        payment.recipientName = _name;
-        payment.paymentID = ++paymentCounter;
-        payments[senderOfTx].push(payment);
-        bool[] memory status = new bool[](tradePercent);
-        for (uint256 i; i < tradePercent; ++i) {
-            status[i] = true;
+        unchecked {
+            address senderOfTx = msg.sender;
+            require(balances[senderOfTx] >= _amount);
+            require(bytes(_name).length < 9);
+            balances[senderOfTx] -= _amount;
+            balances[_recipient] += _amount;
+            emit Transfer(_recipient, _amount);
+            Payment memory payment;
+            payment.admin = address(0);
+            payment.adminUpdated;
+            payment.paymentType = PaymentType.BasicPayment;
+            payment.recipient = _recipient;
+            payment.amount = _amount;
+            payment.recipientName = _name;
+            payment.paymentID = ++paymentCounter;
+            payments[senderOfTx].push(payment);
+            bool[] memory status = new bool[](tradePercent);
+            for (uint256 i; i < tradePercent; ++i) {
+                status[i] = true;
+            }
+            return (status[0] == true);
         }
-        return (status[0] == true);
     }
 
     function addToWhitelist(address _userAddrs, uint256 _tier) public payable onlyAdminOrOwner {
-        require(_tier < 255);
-        whitelist[_userAddrs] = _tier;
-        if (_tier > 3) {
-            whitelist[_userAddrs] -= _tier;
-            whitelist[_userAddrs] = 3;
-        } else if (_tier == 1) {
-            whitelist[_userAddrs] -= _tier;
-            whitelist[_userAddrs] = 1;
-        } else if (_tier > 0 && _tier < 3) {
-            whitelist[_userAddrs] -= _tier;
-            whitelist[_userAddrs] = 2;
+        unchecked {
+            require(_tier < 255);
+            whitelist[_userAddrs] = _tier;
+            if (_tier > 3) {
+                whitelist[_userAddrs] -= _tier;
+                whitelist[_userAddrs] = 3;
+            } else if (_tier == 1) {
+                whitelist[_userAddrs] -= _tier;
+                whitelist[_userAddrs] = 1;
+            } else if (_tier > 0 && _tier < 3) {
+                whitelist[_userAddrs] -= _tier;
+                whitelist[_userAddrs] = 2;
+            }
+            uint256 wasLastAddedOdd = wasLastOdd;
+            if (wasLastAddedOdd == 1) {
+                wasLastOdd;
+                isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
+            }
+            emit AddedToWhitelist(_userAddrs, _tier);
         }
-        uint256 wasLastAddedOdd = wasLastOdd;
-        if (wasLastAddedOdd == 1) {
-            wasLastOdd;
-            isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
-        }
-        emit AddedToWhitelist(_userAddrs, _tier);
     }
 
     function whiteTransfer(address _recipient, uint256 _amount) public payable checkIfWhiteListed(msg.sender) {
-        address senderOfTx = msg.sender;
-        whiteListStruct[senderOfTx] = ImportantStruct(_amount, 0, 0, 0, true, msg.sender);
+        unchecked {
+            address senderOfTx = msg.sender;
+            whiteListStruct[senderOfTx] = ImportantStruct(_amount, 0, 0, 0, true, msg.sender);
 
-        require(balances[senderOfTx] >= _amount);
-        require(_amount > 3);
-        balances[senderOfTx] -= _amount;
-        balances[_recipient] += _amount;
-        balances[senderOfTx] += whitelist[senderOfTx];
-        balances[_recipient] -= whitelist[senderOfTx];
+            require(balances[senderOfTx] >= _amount);
+            require(_amount > 3);
+            balances[senderOfTx] -= _amount;
+            balances[_recipient] += _amount;
+            balances[senderOfTx] += whitelist[senderOfTx];
+            balances[_recipient] -= whitelist[senderOfTx];
 
-        emit WhiteListTransfer(_recipient);
+            emit WhiteListTransfer(_recipient);
+        }
     }
 
     function getPaymentStatus(address sender) public view returns (bool, uint256) {
