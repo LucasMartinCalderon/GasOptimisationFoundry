@@ -807,8 +807,8 @@
       }
     },
     "src/Ownable.sol": {
-      "lastModificationDate": 1691255609625,
-      "contentHash": "e58dee6792b0157c4183cb96df7b10b1",
+      "lastModificationDate": 1691309234806,
+      "contentHash": "5a3d8e7963131e50f01ef84b214b0101",
       "sourceName": "src/Ownable.sol",
       "solcConfig": {
         "settings": {

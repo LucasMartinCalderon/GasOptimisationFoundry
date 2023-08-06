@@ -28,12 +28,12 @@
     }
   ],
   "bytecode": {
-    "object": "0x608060405260016000556001600255348015601957600080fd5b50608f806100286000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063745b07c8146037578063c43982cc146051575b600080fd5b603f60025481565b60405190815260200160405180910390f35b603f6000548156fea26469706673582212201dd7728ef9420b195225cceb792f9663419be947b1d632800090087ff3de59d564736f6c63430008130033",
+    "object": "0x608060405260016000556001600255348015601957600080fd5b50608f806100286000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063745b07c8146037578063c43982cc146051575b600080fd5b603f60025481565b60405190815260200160405180910390f35b603f6000548156fea26469706673582212204d05c476ed93c2928f08649212149c3cd382478c9a55c3e3768cec240f45b5d864736f6c63430008130033",
     "sourceMap": "89:124:17:-:0;;;141:1;114:28;;209:1;179:31;;89:124;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063745b07c8146037578063c43982cc146051575b600080fd5b603f60025481565b60405190815260200160405180910390f35b603f6000548156fea26469706673582212201dd7728ef9420b195225cceb792f9663419be947b1d632800090087ff3de59d564736f6c63430008130033",
+    "object": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063745b07c8146037578063c43982cc146051575b600080fd5b603f60025481565b60405190815260200160405180910390f35b603f6000548156fea26469706673582212204d05c476ed93c2928f08649212149c3cd382478c9a55c3e3768cec240f45b5d864736f6c63430008130033",
     "sourceMap": "89:124:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;179:31;;;;;;;;;160:25:20;;;148:2;133:18;179:31:17;;;;;;;114:28;;;;;",
     "linkReferences": {}
   },
@@ -41,7 +41,7 @@
     "dividendFlag()": "745b07c8",
     "tradeFlag()": "c43982cc"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"dividendFlag\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tradeFlag\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/Gas.sol\":\"Constants\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"src/Gas.sol\":{\"keccak256\":\"0x3f2142f6a6e35f38e80c8862f47b471f8b024d016a7bfa1a454183ae10b6cd3c\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://54c8be449ff5663f6d180d1f742a42571d12863d370c0db78d2400c4b2e2fd11\",\"dweb:/ipfs/QmSxSkLitRm3WwuCFw7pQ4SPf6fesi1ARbDYvYeiNEY1gL\"]},\"src/Ownable.sol\":{\"keccak256\":\"0x8295b014f50eb0f6f74fb382a649ad93ab0a56c04af34c8c6db5e2f5eecee112\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://458da63d83486725f2a099fe3fe966651a8046f1c32ff55353ff4aa31d8e910f\",\"dweb:/ipfs/QmeVsUasVuS6q2QSJcUFF9d2tQ1WiWdECHBHHkFX8Lz8gU\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"dividendFlag\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tradeFlag\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/Gas.sol\":\"Constants\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"src/Gas.sol\":{\"keccak256\":\"0x3f2142f6a6e35f38e80c8862f47b471f8b024d016a7bfa1a454183ae10b6cd3c\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://54c8be449ff5663f6d180d1f742a42571d12863d370c0db78d2400c4b2e2fd11\",\"dweb:/ipfs/QmSxSkLitRm3WwuCFw7pQ4SPf6fesi1ARbDYvYeiNEY1gL\"]},\"src/Ownable.sol\":{\"keccak256\":\"0x088ff2d8f68090ae682d7b9df963acdbd2f7d3af600e220ffd99dc341f9df604\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f2541705f1d54eb26204e11df71cad9b755b8097b7cbc8d1d983eac2ca60b5aa\",\"dweb:/ipfs/Qmb8iYc9hjwqT9tMuH9e4yVQN3SGx98ZfpBCj1ZpnvNxVG\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -114,10 +114,10 @@
         "license": "UNLICENSED"
       },
       "src/Ownable.sol": {
-        "keccak256": "0x8295b014f50eb0f6f74fb382a649ad93ab0a56c04af34c8c6db5e2f5eecee112",
+        "keccak256": "0x088ff2d8f68090ae682d7b9df963acdbd2f7d3af600e220ffd99dc341f9df604",
         "urls": [
-          "bzz-raw://458da63d83486725f2a099fe3fe966651a8046f1c32ff55353ff4aa31d8e910f",
-          "dweb:/ipfs/QmeVsUasVuS6q2QSJcUFF9d2tQ1WiWdECHBHHkFX8Lz8gU"
+          "bzz-raw://f2541705f1d54eb26204e11df71cad9b755b8097b7cbc8d1d983eac2ca60b5aa",
+          "dweb:/ipfs/Qmb8iYc9hjwqT9tMuH9e4yVQN3SGx98ZfpBCj1ZpnvNxVG"
         ],
         "license": "MIT"
       }
@@ -138,7 +138,7 @@
         29072
       ],
       "Ownable": [
-        29167
+        29146
       ]
     },
     "nodeType": "SourceUnit",
@@ -164,7 +164,7 @@
         "file": "./Ownable.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 29073,
-        "sourceUnit": 29168,
+        "sourceUnit": 29147,
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -8456,7 +8456,7 @@
                 "239:7:17"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 29167,
+              "referencedDeclaration": 29146,
               "src": "239:7:17"
             },
             "id": 28402,
@@ -8486,7 +8486,7 @@
         "linearizedBaseContracts": [
           29072,
           28400,
-          29167,
+          29146,
           29094
         ],
         "name": "GasContract",

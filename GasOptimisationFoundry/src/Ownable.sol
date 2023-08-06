@@ -53,12 +53,6 @@ abstract contract Ownable is Context {
         require(owner() == _msgSender());
     }
 
-    function transferOwnership(address newOwner) public virtual onlyOwner {
-        require(
-            newOwner != address(0));
-        _transferOwnership(newOwner);
-    }
-
     function _transferOwnership(address newOwner) internal virtual {
         _owner = newOwner;
     }
