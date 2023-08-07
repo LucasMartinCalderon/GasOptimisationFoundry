@@ -51,7 +51,7 @@ contract GasContract is Ownable {
 
     struct Payment {
         PaymentType paymentType;
-        uint8 paymentID;
+        uint256 paymentID;
         bool adminUpdated;
         string recipientName; // max 8 characters
         address recipient;
