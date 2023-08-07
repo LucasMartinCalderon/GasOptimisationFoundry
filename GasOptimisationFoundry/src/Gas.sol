@@ -12,7 +12,7 @@ contract GasContract {
 
     event AddedToWhitelist(address userAddress, uint256 tier);
     event WhiteListTransfer(address indexed);
-    
+
     struct ImportantStruct {
         uint256 amount;
         bool paymentStatus;
