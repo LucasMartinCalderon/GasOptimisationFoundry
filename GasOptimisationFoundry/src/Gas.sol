@@ -12,12 +12,12 @@ contract Constants {
 
 contract GasContract is Ownable, Constants {
     // Constant totalSupply is set to 0, so that it cannot be updated
-    uint256 private totalSupply = 0; // cannot be updated
-    uint256 private paymentCounter = 0;
+    uint256 private totalSupply; // cannot be updated
+    uint8 private paymentCounter;
     mapping(address => uint256) public balances;
-    uint256 private tradePercent = 12;
+    uint8 private constant tradePercent = 12;
     address private contractOwner;
-    uint256 private tradeMode = 0;
+    uint8 private tradeMode;
     mapping(address => Payment[]) public payments;
     mapping(address => uint256) public whitelist;
     address[5] public administrators;
@@ -38,7 +38,7 @@ contract GasContract is Ownable, Constants {
 
     struct Payment {
         PaymentType paymentType;
-        uint256 paymentID;
+        uint8 paymentID;
         uint256 amount;
         bool adminUpdated;
         string recipientName; // max 8 characters
@@ -97,7 +97,7 @@ contract GasContract is Ownable, Constants {
     event Transfer(address recipient, uint256 amount);
     event PaymentUpdated(
         address admin,
-        uint256 ID,
+        uint8 ID,
         uint256 amount,
         string recipient
     );
@@ -209,7 +209,7 @@ contract GasContract is Ownable, Constants {
 
     function updatePayment(
         address _user,
-        uint256 _ID,
+        uint8 _ID,
         uint256 _amount,
         PaymentType _type
     ) private onlyAdminOrOwner {
