@@ -3,7 +3,6 @@ pragma solidity ^0.8.20;
 
 contract GasContract {
     address private contractOwner;
-    uint8 private paymentCounter;
     uint256 private totalSupply; // cannot be updated
     mapping(address => uint256) public balances;
     mapping(address => uint256) public whitelist;
