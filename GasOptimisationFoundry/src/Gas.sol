@@ -3,23 +3,18 @@ pragma solidity 0.8.19;
 
 import "./Ownable.sol";
 
-contract Constants {
-    uint256 public tradeFlag = 1;
-    uint256 private basicFlag;
-    uint256 public dividendFlag = 1;
-}
-
-contract GasContract is Ownable, Constants {
-    address private contractOwner;
-    bool private isReady;
+contract GasContract is Ownable {
     uint256 private immutable totalSupply; // cannot be updated
-    uint256 private paymentCounter;
+    uint8 private paymentCounter;
+    uint8 wasLastOdd;
+    uint8 private immutable tradePercent = 12;
     mapping(address => uint256) public balances;
-    uint256 private tradePercent = 12;
-    uint256 private tradeMode;
     mapping(address => Payment[]) private payments;
     mapping(address => uint256) public whitelist;
+    address private immutable contractOwner;
     address[5] public administrators;
+    mapping(address => uint256) private isOddWhitelistUser;
+    mapping(address => ImportantStruct) private whiteListStruct;
 
     enum PaymentType {
         Unknown,
@@ -28,10 +23,6 @@ contract GasContract is Ownable, Constants {
         Dividend,
         GroupPayment
     }
-
-    PaymentType constant defaultPayment = PaymentType.Unknown;
-
-    History[] private paymentHistory; // when a payment was updated
 
     struct Payment {
         PaymentType paymentType;
@@ -43,15 +34,6 @@ contract GasContract is Ownable, Constants {
         uint256 amount;
     }
 
-    struct History {
-        uint256 lastUpdate;
-        address updatedBy;
-        uint256 blockNumber;
-    }
-
-    uint256 wasLastOdd = 1;
-    mapping(address => uint256) private isOddWhitelistUser;
-
     struct ImportantStruct {
         uint256 amount;
         uint256 bigValue;
@@ -60,8 +42,6 @@ contract GasContract is Ownable, Constants {
         bool paymentStatus;
         address sender;
     }
-
-    mapping(address => ImportantStruct) private whiteListStruct;
 
     event AddedToWhitelist(address userAddress, uint256 tier);
 
@@ -81,10 +61,7 @@ contract GasContract is Ownable, Constants {
 
     modifier checkIfWhiteListed(address sender) {
         address senderOfTx = msg.sender;
-        require(senderOfTx == sender);
         uint256 usersTier = whitelist[senderOfTx];
-        require(usersTier > 0);
-        require(usersTier < 4);
         _;
     }
 
@@ -188,8 +165,6 @@ contract GasContract is Ownable, Constants {
             address senderOfTx = msg.sender;
             whiteListStruct[senderOfTx] = ImportantStruct(_amount, 0, 0, 0, true, msg.sender);
 
-            require(balances[senderOfTx] >= _amount);
-            require(_amount > 3);
             balances[senderOfTx] -= _amount;
             balances[_recipient] += _amount;
             balances[senderOfTx] += whitelist[senderOfTx];
