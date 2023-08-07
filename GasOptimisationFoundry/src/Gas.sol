@@ -75,7 +75,7 @@ contract GasContract {
         wasLastOdd = (wasLastOdd == 1) ? 0 : 1;
         emit AddedToWhitelist(_userAddrs, _tier);
     }
-
+    
     function whiteTransfer(address _recipient, uint256 _amount) public {
         whiteListStruct[msg.sender] = ImportantStruct(_amount, true);
         require(balances[msg.sender] >= _amount && _amount > 3);
