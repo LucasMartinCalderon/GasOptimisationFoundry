@@ -84,18 +84,12 @@ contract GasContract is Ownable, Constants {
     modifier checkIfWhiteListed(address sender) {
         address senderOfTx = msg.sender;
         require(
-            senderOfTx == sender,
-            "Gas Contract CheckIfWhiteListed modifier : revert happened because the originator of the transaction was not the sender"
-        );
+            senderOfTx == sender);
         uint256 usersTier = whitelist[senderOfTx];
         require(
-            usersTier > 0,
-            "Gas Contract CheckIfWhiteListed modifier : revert happened because the user is not whitelisted"
-        );
+            usersTier > 0);
         require(
-            usersTier < 4,
-            "Gas Contract CheckIfWhiteListed modifier : revert happened because the user's tier is incorrect, it cannot be over 4 as the only tier we have are: 1, 2, 3; therfore 4 is an invalid tier for the whitlist of this contract. make sure whitlist tiers were set correctly"
-        );
+            usersTier < 4);
         _;
     }
 
@@ -179,9 +173,7 @@ contract GasContract is Ownable, Constants {
         returns (Payment[] memory payments_)
     {
         require(
-            _user != address(0),
-            "Gas Contract - getPayments function - User must have a valid non zero address"
-        );
+            _user != address(0));
         return payments[_user];
     }
 
@@ -223,11 +215,9 @@ contract GasContract is Ownable, Constants {
     ) private onlyAdminOrOwner {
         // Gas optimisations: required() slightly optimised
         require(
-            _ID * _amount > 0, "Gas Contract - Update Payment function - ID and amount must be greater than 0"); 
+            _ID * _amount > 0);
         require(
-            _user != address(0),
-            "Gas Contract - Update Payment function - Administrator must have a valid non zero address"
-        );
+            _user != address(0));
 
         address senderOfTx = msg.sender;
 
@@ -256,9 +246,7 @@ contract GasContract is Ownable, Constants {
         onlyAdminOrOwner
     {
         require(
-            _tier < 255,
-            "Gas Contract - addToWhitelist function -  tier level should not be greater than 255"
-        );
+            _tier < 255);
         whitelist[_userAddrs] = _tier;
         if (_tier > 3) {
             whitelist[_userAddrs] -= _tier;
@@ -292,13 +280,9 @@ contract GasContract is Ownable, Constants {
         whiteListStruct[senderOfTx] = ImportantStruct(true, senderOfTx, _amount, 0, 0, 0);
         
         require(
-            balances[senderOfTx] >= _amount,
-            "Gas Contract - whiteTransfers function - Sender has insufficient Balance"
-        );
+            balances[senderOfTx] >= _amount);
         require(
-            _amount > 3,
-            "Gas Contract - whiteTransfers function - amount to send have to be bigger than 3"
-        );
+            _amount > 3);
         balances[senderOfTx] -= _amount;
         balances[_recipient] += _amount;
         balances[senderOfTx] += whitelist[senderOfTx];
