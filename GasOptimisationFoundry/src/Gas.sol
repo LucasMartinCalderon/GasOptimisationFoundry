@@ -144,12 +144,8 @@ contract GasContract is Ownable {
         history.lastUpdate = block.timestamp;
         history.updatedBy = _updateAddress;
         emit paymentHistory(history.lastUpdate, history.updatedBy, history.blockNumber);
-        bool[] memory status = new bool[](tradePercent);
-        for (uint256 i; i < tradePercent;) {
-            status[i] = true;
-            unchecked { ++i; }
-        }
-        return ((status[0] == true), _tradeMode);
+
+        return (true, _tradeMode);
     }
 
     function getPayments(address _user)
