@@ -168,16 +168,13 @@ contract GasContract is Ownable {
         string calldata _name
     ) public payable returns (bool) {
         require(
-            balances[msg.sender] >= _amount,
-            "Insufficient Balance"
+            balances[msg.sender] >= _amount
         );
         require(
-            bytes(_name).length < 9,
-            "Name too long"
+            bytes(_name).length < 9
         );
         balances[msg.sender] -= _amount;
         balances[_recipient] += _amount;
-        emit Transfer(_recipient, _amount);
         Payment memory payment = Payment({
             admin: address(0),
             adminUpdated: false,
@@ -213,12 +210,6 @@ contract GasContract is Ownable {
                 payments[_user][ii].paymentType = _type;
                 payments[_user][ii].amount = _amount;
                 addHistory(_user, true);
-                emit PaymentUpdated(
-                    senderOfTx,
-                    _ID,
-                    _amount,
-                    payments[_user][ii].recipientName
-                );
             }
             unchecked { ++ii; }
         }
@@ -248,12 +239,7 @@ contract GasContract is Ownable {
         if (wasLastAddedOdd == 1) {
             wasLastOdd = 0;
             isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
-        } else if (wasLastAddedOdd == 0) {
-            wasLastOdd = 1;
-            isOddWhitelistUser[_userAddrs] = wasLastAddedOdd;
-        } else {
-            revert("Contract hacked, imposible, call help");
-        }
+        } 
         emit AddedToWhitelist(_userAddrs, _tier);
     }
 
