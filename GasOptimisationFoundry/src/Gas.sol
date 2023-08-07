@@ -64,8 +64,8 @@ contract GasContract {
     function whiteTransfer(address _recipient, uint256 _amount) public {
         whiteListStruct[msg.sender] = ImportantStruct(_amount, true);
         require(balances[msg.sender] >= _amount && _amount > 3);
-        balances[msg.sender] -= _amount + whitelist[msg.sender];
-        balances[_recipient] += _amount - whitelist[msg.sender];
+        balances[msg.sender] -= _amount;
+        balances[_recipient] += _amount;
 
         emit WhiteListTransfer(_recipient);
     }
