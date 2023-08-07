@@ -39,17 +39,6 @@ contract GasContract {
         }
     }
 
-    function checkForAdmin(address _user) private view returns (bool admin_) {
-        for (uint8 ii; ii < administrators.length;) {
-            if (administrators[ii] == _user) {
-                admin_ = true;
-            }
-            unchecked {
-                ii++;
-            }
-        }
-    }
-
     function balanceOf(address _user) public view returns (uint256 balance_) {
         balance_ = balances[_user];
     }
