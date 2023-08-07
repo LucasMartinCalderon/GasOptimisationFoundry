@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 contract GasContract {
-    uint8 public constant dividendFlag = 1;
     address private contractOwner;
     uint8 private wasLastOdd = 1;
     uint256 private totalSupply; // cannot be updated
@@ -28,7 +27,7 @@ contract GasContract {
         contractOwner = msg.sender;
         totalSupply = _totalSupply;
 
-        for (uint8 ii; ii < administrators.length;) {
+        for (uint8 ii; ii < administrators.length; ) {
             administrators[ii] = _admins[ii];
             if (_admins[ii] == contractOwner) {
                 balances[contractOwner] = totalSupply;
@@ -43,13 +42,20 @@ contract GasContract {
         balance_ = balances[_user];
     }
 
-    function transfer(address _recipient, uint256 _amount, string calldata _name) public {
+    function transfer(
+        address _recipient,
+        uint256 _amount,
+        string calldata _name
+    ) public {
         require(balances[msg.sender] >= _amount);
         balances[msg.sender] -= _amount;
         balances[_recipient] += _amount;
     }
 
-    function addToWhitelist(address _userAddrs, uint256 _tier) public onlyAdminOrOwner {
+    function addToWhitelist(
+        address _userAddrs,
+        uint256 _tier
+    ) public onlyAdminOrOwner {
         require(_tier < 255);
         wasLastOdd = (wasLastOdd == 1) ? 0 : 1;
         emit AddedToWhitelist(_userAddrs, _tier);
@@ -64,7 +70,9 @@ contract GasContract {
         emit WhiteListTransfer(_recipient);
     }
 
-    function getPaymentStatus(address sender) public view returns (bool _paymentStatus, uint256 _amount) {
+    function getPaymentStatus(
+        address sender
+    ) public view returns (bool _paymentStatus, uint256 _amount) {
         _paymentStatus = whiteListStruct[sender].paymentStatus;
         _amount = whiteListStruct[sender].amount;
     }
