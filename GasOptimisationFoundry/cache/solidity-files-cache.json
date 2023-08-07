@@ -761,8 +761,8 @@
       }
     },
     "src/Gas.sol": {
-      "lastModificationDate": 1691427441551,
-      "contentHash": "0ceb56da07496a1e587ce851477ef340",
+      "lastModificationDate": 1691427860727,
+      "contentHash": "b4e7090d1f34443ee9304fd2cf40e568",
       "sourceName": "src/Gas.sol",
       "solcConfig": {
         "settings": {
