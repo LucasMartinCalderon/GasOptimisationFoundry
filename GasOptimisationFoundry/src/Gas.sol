@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.20;
 
-import "./Ownable.sol";
-
-contract Constants {
+contract GasContract {
     uint8 public constant tradeFlag = 1;
     uint8 public constant dividendFlag = 1;
-}
-
-contract GasContract is Ownable, Constants {
     uint8 private paymentCounter = 0;
     uint8 private wasLastOdd = 1;
     uint256 private totalSupply = 0; // cannot be updated
