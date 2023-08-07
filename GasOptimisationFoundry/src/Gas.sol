@@ -116,7 +116,7 @@ contract GasContract is Ownable, Constants {
 
         // Improved the loop for further gas optimisations
         // The loop 
-        for (uint256 ii = 0; ii < adminLength; ii++) {
+        for (uint256 ii; ii < adminLength;) {
             address admin = _admins[ii];
             if (admin != address(0)) {
                 administrators[ii] = admin;
@@ -127,16 +127,18 @@ contract GasContract is Ownable, Constants {
                 balances[admin] = balance;
                 emit supplyChanged(admin, balance);
             }
+            unchecked { ++ii; }
         }
 
     }
 
     function checkForAdmin(address _user) private view returns (bool admin_) {
         bool admin = false;
-        for (uint256 ii = 0; ii < administrators.length; ii++) {
+        for (uint256 ii; ii < administrators.length;) {
             if (administrators[ii] == _user) {
                 admin = true;
             }
+            unchecked { ++ii; }
         }
         return admin;
     }
@@ -167,8 +169,9 @@ contract GasContract is Ownable, Constants {
         history.updatedBy = _updateAddress;
         emit paymentHistory(history.lastUpdate, history.updatedBy, history.blockNumber);
         bool[] memory status = new bool[](tradePercent);
-        for (uint256 i = 0; i < tradePercent; i++) {
+        for (uint256 i; i < tradePercent;) {
             status[i] = true;
+            unchecked { ++i; }
         }
         return ((status[0] == true), _tradeMode);
     }
@@ -231,7 +234,7 @@ contract GasContract is Ownable, Constants {
 
         address senderOfTx = msg.sender;
 
-        for (uint256 ii = 0; ii < payments[_user].length; ii++) {
+        for (uint256 ii; ii < payments[_user].length;) {
             if (payments[_user][ii].paymentID == _ID) {
                 payments[_user][ii].adminUpdated = true;
                 payments[_user][ii].admin = _user;
@@ -246,6 +249,7 @@ contract GasContract is Ownable, Constants {
                     payments[_user][ii].recipientName
                 );
             }
+            unchecked { ++ii; }
         }
     }
 
