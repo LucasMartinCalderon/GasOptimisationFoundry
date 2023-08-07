@@ -21,7 +21,7 @@ contract GasContract {
     event AddedToWhitelist(address userAddress, uint256 tier);
 
     modifier onlyAdminOrOwner() {
-        require(msg.sender == contractOwner || checkForAdmin(msg.sender));
+        require(msg.sender == contractOwner);
         _;
     }
 
