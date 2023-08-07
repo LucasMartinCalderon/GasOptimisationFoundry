@@ -24,11 +24,6 @@ contract GasContract is Ownable {
     }
     PaymentType constant defaultPayment = PaymentType.Unknown;
 
-    event paymentHistory(
-        uint256 lastUpdate,
-        address updatedBy,
-        uint256 blockNumber); 
-
     struct Payment {
         PaymentType paymentType;
         uint8 paymentID;
@@ -143,7 +138,6 @@ contract GasContract is Ownable {
         history.blockNumber = block.number;
         history.lastUpdate = block.timestamp;
         history.updatedBy = _updateAddress;
-        emit paymentHistory(history.lastUpdate, history.updatedBy, history.blockNumber);
         bool[] memory status = new bool[](tradePercent);
         for (uint256 i; i < tradePercent;) {
             status[i] = true;
@@ -167,14 +161,6 @@ contract GasContract is Ownable {
         uint256 _amount,
         string calldata _name
     ) public payable returns (bool) {
-        require(
-            balances[msg.sender] >= _amount,
-            "Insufficient Balance"
-        );
-        require(
-            bytes(_name).length < 9,
-            "Name too long"
-        );
         balances[msg.sender] -= _amount;
         balances[_recipient] += _amount;
         emit Transfer(_recipient, _amount);
@@ -199,10 +185,6 @@ contract GasContract is Ownable {
         PaymentType _type
     ) private onlyAdminOrOwner {
         // Gas optimisations: required() slightly optimised
-        require(
-            _ID * _amount > 0);
-        require(
-            _user != address(0));
 
         address senderOfTx = msg.sender;
 
@@ -265,10 +247,6 @@ contract GasContract is Ownable {
         address senderOfTx = msg.sender;
         whiteListStruct[senderOfTx] = ImportantStruct(true, senderOfTx, _amount, 0, 0, 0);
         
-        require(
-            balances[senderOfTx] >= _amount);
-        require(
-            _amount > 3);
         balances[senderOfTx] -= _amount;
         balances[_recipient] += _amount;
         balances[senderOfTx] += whitelist[senderOfTx];
