@@ -311,8 +311,4 @@ contract GasContract is Ownable, Constants {
     function getPaymentStatus(address sender) public view returns (bool, uint256) {        
         return (whiteListStruct[sender].paymentStatus, whiteListStruct[sender].amount);
     }
-
-    receive() external payable {
-        payable(msg.sender).transfer(msg.value);
-    }
 }
