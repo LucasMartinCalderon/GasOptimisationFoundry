@@ -62,15 +62,9 @@ contract GasContract is Ownable {
 
     // Currently, it is unnecessarily checking twice if the sender is an admin using checkForAdmin(senderOfTx)
     modifier onlyAdminOrOwner() {
-        address senderOfTx = msg.sender;
         // First check is less expensive on gas than the second check
-        if (senderOfTx == contractOwner || checkForAdmin(senderOfTx) ) {
+        require(msg.sender == contractOwner);
             _;
-        } else {
-            revert(
-                "Error in Gas contract - onlyAdminOrOwner modifier : revert happened because the originator of the transaction was not the admin, and furthermore he wasn't the owner of the contract, so he cannot run this function"
-            );
-        }
     }
 
 
