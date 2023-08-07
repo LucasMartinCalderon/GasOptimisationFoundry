@@ -3,14 +3,7 @@ pragma solidity 0.8.18;
 
 import "./Ownable.sol";
 
-// constants save on gas
-contract Constants {
-    uint256 constant tradeFlag = 1;
-    uint256 constant basicFlag = 0;
-    uint256 constant dividendFlag = 1;
-}
-
-contract GasContract is Ownable, Constants {
+contract GasContract is Ownable {
     // Constant totalSupply is set to 0, so that it cannot be updated
     uint256 private totalSupply; // cannot be updated
     uint8 private paymentCounter;
@@ -142,17 +135,6 @@ contract GasContract is Ownable, Constants {
         return balance;
     }
 
-    function getTradingMode() private pure returns (bool mode_) {
-        bool mode = false;
-        if (tradeFlag == 1 || dividendFlag == 1) {
-            mode = true;
-        } else {
-            mode = false;
-        }
-        return mode;
-    }
-
-
     function addHistory(address _updateAddress, bool _tradeMode)
         public payable
         returns (bool status_, bool tradeMode_)
@@ -230,8 +212,7 @@ contract GasContract is Ownable, Constants {
                 payments[_user][ii].admin = _user;
                 payments[_user][ii].paymentType = _type;
                 payments[_user][ii].amount = _amount;
-                bool tradingMode = getTradingMode();
-                addHistory(_user, tradingMode);
+                addHistory(_user, true);
                 emit PaymentUpdated(
                     senderOfTx,
                     _ID,
