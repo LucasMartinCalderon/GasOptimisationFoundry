@@ -4,9 +4,9 @@ pragma solidity ^0.8.20;
 contract GasContract {
     uint8 public constant tradeFlag = 1;
     uint8 public constant dividendFlag = 1;
-    uint8 private paymentCounter = 0;
+    uint8 private paymentCounter;
     uint8 private wasLastOdd = 1;
-    uint256 private totalSupply = 0; // cannot be updated
+    uint256 private totalSupply; // cannot be updated
     mapping(address => uint256) public balances;
     mapping(address => uint256) public whitelist;
     mapping(address => ImportantStruct) private whiteListStruct;
