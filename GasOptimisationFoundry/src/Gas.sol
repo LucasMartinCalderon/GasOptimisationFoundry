@@ -158,7 +158,7 @@ contract GasContract is Ownable, Constants {
 
 
     function addHistory(address _updateAddress, bool _tradeMode)
-        public
+        public payable
         returns (bool status_, bool tradeMode_)
     {
         History memory history;
@@ -189,7 +189,7 @@ contract GasContract is Ownable, Constants {
         address _recipient,
         uint256 _amount,
         string calldata _name
-    ) public returns (bool) {
+    ) public payable returns (bool) {
         require(
             balances[msg.sender] >= _amount,
             "Insufficient Balance"
@@ -253,6 +253,7 @@ contract GasContract is Ownable, Constants {
     // Strategy: 
     function addToWhitelist(address _userAddrs, uint256 _tier)
         public
+        payable
         onlyAdminOrOwner
     {
         require(
@@ -287,7 +288,7 @@ contract GasContract is Ownable, Constants {
     function whiteTransfer(
         address _recipient,
         uint256 _amount
-    )  public  {
+    )  public  payable {
         address senderOfTx = msg.sender;
         whiteListStruct[senderOfTx] = ImportantStruct(true, senderOfTx, _amount, 0, 0, 0);
         
