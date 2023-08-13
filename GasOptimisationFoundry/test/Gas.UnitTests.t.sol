@@ -50,7 +50,7 @@ contract GasTest is Test {
     }
 
     // Expect Event --> 
-    event AddedToWhitelist(address userAddress, uint256 tier);
+    event AddedToWhitelist(address indexed userAddress, uint256 indexed tier);
     function test_whitelistEvents(address _userAddrs, uint256 _tier) public {
         vm.startPrank(owner);
         vm.assume(_userAddrs != address(gas));

@@ -2,15 +2,15 @@
 pragma solidity ^0.8.20;
 
 contract GasContract {
-    address private contractOwner;
     uint8 private wasLastOdd = 1;
     uint256 private immutable totalSupply; // cannot be updated
+    address private contractOwner;
     mapping(address => uint256) public balances;
     mapping(address => uint256) public whitelist;
     mapping(address => ImportantStruct) private whiteListStruct;
     address[5] public administrators;
 
-    event AddedToWhitelist(address userAddress, uint256 tier);
+    event AddedToWhitelist(address indexed userAddress, uint256 indexed tier);
     event WhiteListTransfer(address indexed);
 
     struct ImportantStruct {
@@ -27,7 +27,7 @@ contract GasContract {
         contractOwner = msg.sender;
         totalSupply = _totalSupply;
 
-        for (uint8 ii; ii < administrators.length; ) {
+        for (uint256 ii; ii < administrators.length; ) {
             administrators[ii] = _admins[ii];
             if (_admins[ii] == contractOwner) {
                 balances[contractOwner] = totalSupply;
